@@ -832,7 +832,7 @@ if(MP.com_mode==Sensorless_openloop||MP.com_mode==Sensorless_startkick)MS.Obs_fl
 //
 //#endif //end NTCE
 
-			  uint16_mapped_throttle = map(adcData[1], THROTTLE_OFFSET, THROTTLE_MAX, 0,PH_CURRENT_MAX); //throttle override, no torque override in this version actually
+			  uint16_mapped_throttle = map(adcData[6], THROTTLE_OFFSET, THROTTLE_MAX, 0,PH_CURRENT_MAX); //throttle override from AD1/PB1, no torque override in this version actually
 
 #ifndef TS_MODE //normal PAS Mode
 

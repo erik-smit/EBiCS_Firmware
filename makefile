@@ -43,7 +43,8 @@ LishuiFOC_01.elf: $(OBJS) $(USER_OBJS) STM32F103C8Tx_FLASH_Bootloader.ld
 
 # Other Targets
 clean:
-	-$(RM) *
+	-$(RM) build/*
+	-$(RM) output.map
 	-@echo ' '
 
 post-build:
