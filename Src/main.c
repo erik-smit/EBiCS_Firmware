@@ -752,6 +752,10 @@ if(MP.com_mode==Sensorless_openloop||MP.com_mode==Sensorless_startkick)MS.Obs_fl
 #endif
 						HAL_GPIO_WritePin(BRAKE_LIGHT_GPIO_Port, BRAKE_LIGHT_Pin, GPIO_PIN_SET);
 						int32_temp_current_target= -map(MS.Voltage*CAL_BAT_V,BATTERYVOLTAGE_MAX-1000,BATTERYVOLTAGE_MAX,int32_temp_current_target,0);
+						//while braking, invalidate recent pedalling, so assist does not resume after brake release without a fresh PAS edge
+						uint32_PAS_counter = PAS_TIMEOUT;
+						uint32_PAS = 32000;
+						ui8_PAS_flag = 0;
 				}
 
 				//next priority: undervoltage protection
